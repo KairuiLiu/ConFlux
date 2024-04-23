@@ -43,3 +43,4 @@
 - Technical
   - [Installation Guide](./technical/deploy.md)
   - [API](./technical/api/)
+  - [Other Technical Documents](./technical/misc/)

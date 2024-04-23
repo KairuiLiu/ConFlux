@@ -42,3 +42,4 @@
 - Technical
   - [安装指南](./technical/deploy.md)
   - [API](./technical/api/)
+  - [其他技术文档](./technical/misc/)
