@@ -8,39 +8,38 @@
     <!-- badge here -->
   </p>
   <h4>
-    <a href="">Live Demo</a>
+    <a href="https://conflux.liukairui.me/">Live Demo</a>
     <span> | </span>
     <a href="./README.md">English</a>
     <span> | </span>
-    <a href="./README.md">简体中文</a>
+    <a href="./README-CN.md">简体中文</a>
   </h4>
 </div>
 
-### Features
+### ✨ Feature
 
--
+- Multi-person P2P video conferencing based on WebRTC
+- Local users, no registration required, no login required
+- Supports screen sharing
+- Supports audio and video device testing and switching
+- Supports meeting invitations
+- Supports meeting member permission management (setting co-hosts, muting, kicking out)
+- Real-time traffic monitoring
 
-### Component
 
-- [ConFlux Client]()
-- [ConFlux Server (Node.js)]()
-- [ConFlux Server (GoLang)]()
+### 📂 Project Repository
 
-### Deploy
+- [Client](https://github.com/KairuiLiu/conflux-client)
+- [Server](https://github.com/KairuiLiu/conflux-server)
 
-```bash
-wget
-```
+### 📄 Documentation
 
-### Document
-
-- Product
-  - [PRD]()
-  - [RoadMap]()
+- Product Documentation
+  - [PRD](./product/PRD/)
+  - [Product Roadmap](https://github.com/users/KairuiLiu/projects/5)
 - Design
   - [Figma](https://www.figma.com/file/Z5L0xXbiYRHvmJj11YYfL0/ConFlux?type=design&node-id=301%3A1916&mode=design&t=BGpGi3kvQd7BSn8B-1)
-  - [Draft]()
-- Guid
-  - [Install]()
-  - [Usage]()
+  - [Design Drafts](./design)
 - Technical
+  - [Installation Guide](./technical/deploy.md)
+  - [API](./technical/api/)
