@@ -4,7 +4,7 @@
 
 - Install common dependencies (steps omitted)
   - Nginx
-  - Node.js (>=16)
+  - Node.js (>=18)
   - pnpm
   - HTTPS certificate
 
@@ -101,18 +101,27 @@ mkdir /path/to/wwwroot/conflux
 - Configure Nginx
 
   ```nginx
-  server {
-    listen 443 ssl;
+  http {
+    # ...
+    types {
+        application/wasm wasm;
+    }
+  }
+  ```
 
-    server_name  YOUR_DOMAIN_NAME;
+  ```nginx
+  server {
+    listen 443 ssl http2;
+
+    server_name  conflux.liukairui.me;
     index index.html index.htm;
 
-    root  /path/to/wwwroot/conflux/html;
+    root  /home/liukairui/wwwroot/conflux/html;
     try_files $uri $uri/ /index.html
 
     error_page 404 /index.html;
-    ssl_certificate /path/to/cert.pem;
-    ssl_certificate_key /path/to/key.pem;
+    ssl_certificate /home/liukairui/wwwroot/ssl/cert.pem;
+    ssl_certificate_key /home/liukairui/wwwroot/ssl/key.pem;
 
     gzip on;
     gzip_disable "msie6";
@@ -122,7 +131,7 @@ mkdir /path/to/wwwroot/conflux
     gzip_buffers 16 8k;
     gzip_http_version 1.1;
     gzip_min_length 256;
-    gzip_types application/atom+xml application/geo+json application/javascript application/x-javascript application/json application/ld+json application/manifest+json application/rdf+xml application/rss+xml application/xhtml+xml application/xml font/eot font/otf font/ttf image/svg+xml text/css text/javascript text/plain text/xml;
+    gzip_types application/atom+xml application/geo+json application/javascript application/x-javascript application/json application/ld+json application/manifest+json application/rdf+xml application/rss+xml application/xhtml+xml application/xml font/eot font/otf font/ttf image/svg+xml text/css text/javascript text/plain text/xml application/wasm;
 
     location /socket.io/ {
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -151,7 +160,6 @@ mkdir /path/to/wwwroot/conflux
 
     location /api/ {
       proxy_pass http://127.0.0.1:9876/;
-      proxy_http_version 1.1;
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection "upgrade";
       proxy_set_header Host $host;
@@ -159,6 +167,10 @@ mkdir /path/to/wwwroot/conflux
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
       proxy_set_header X-Forwarded-Proto $scheme;
       proxy_read_timeout 86400;
+    }
+
+    location ^~ /tflite/ {
+      expires 365d;
     }
 
     location ~* (jpe?g|png|gif|svg) {

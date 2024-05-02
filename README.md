@@ -20,9 +20,11 @@
 
 - Multi-person P2P video conferencing based on WebRTC
 - Local users, no registration required, no login required
+- Support for meeting scheduling and invitation code entry
+- Support for video background replacement
 - Supports screen sharing
+- Support for meeting chat
 - Supports audio and video device testing and switching
-- Supports meeting invitations
 - Supports meeting member permission management (setting co-hosts, muting, kicking out)
 - Real-time traffic monitoring
 
