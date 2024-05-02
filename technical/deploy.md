@@ -4,7 +4,7 @@
 
 - Install common dependencies (steps omitted)
   - Nginx
-  - Node.js (>=16)
+  - Node.js (>=18)
   - pnpm
   - HTTPS certificate
 

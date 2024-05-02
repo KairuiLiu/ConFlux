@@ -8,7 +8,7 @@
     <!-- badge here -->
   </p>
   <h4>
-    <a href="https://conflux.liukairui.me/">Live Demo</a>
+    <a href="https://conflux.liukairui.me/">在线演示</a>
     <span> | </span>
     <a href="./README.md">English</a>
     <span> | </span>
