@@ -113,15 +113,15 @@ mkdir /path/to/wwwroot/conflux
   server {
     listen 443 ssl http2;
 
-    server_name  conflux.liukairui.me;
+    server_name  YOUR_DOMAIN_NAME;
     index index.html index.htm;
 
-    root  /home/liukairui/wwwroot/conflux/html;
+    root  /path/to/wwwroot/conflux/html;
     try_files $uri $uri/ /index.html
 
     error_page 404 /index.html;
-    ssl_certificate /home/liukairui/wwwroot/ssl/cert.pem;
-    ssl_certificate_key /home/liukairui/wwwroot/ssl/key.pem;
+    ssl_certificate /path/to/wwwroot/ssl/cert.pem;
+    ssl_certificate_key /path/to/wwwroot/ssl/key.pem;
 
     gzip on;
     gzip_disable "msie6";
